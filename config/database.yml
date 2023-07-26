@@ -1,0 +1,23 @@
+# config/database.yml
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: postgres
+  password: dantito32
+
+development:
+  <<: *default
+  database: KariPic_development
+
+test:
+  <<: *default
+  database: KariPic_test
+
+production:
+  <<: *default
+  database: KariPic_production
+  username: KariPic
+  password: <%= ENV['KARIPIC_DATABASE_PASSWORD'] %>
